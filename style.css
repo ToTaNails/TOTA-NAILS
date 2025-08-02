@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Roboto+Slab:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Roboto Slab", serif;
+}
+.container {
+  margin: 10px auto;
+  width: 80%;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+body {
+  background-color: rgb(93, 37, 117);
+}
+.bg-lines span {
+  color: black;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  background: rgba(255, 62, 229, 0.267);
+  width: 2px;
+  animation: left_right 10s infinite;
+}
+.bg-lines span:nth-child(1) {
+  left: 10%;
+}
+.bg-lines span:nth-child(2) {
+  left: 20%;
+}
+.bg-lines span:nth-child(3) {
+  left: 30%;
+}
+.bg-lines span:nth-child(4) {
+  left: 40%;
+}
+.bg-lines span:nth-child(5) {
+  left: 50%;
+}
+.bg-lines span:nth-child(6) {
+  left: 60%;
+}
+.bg-lines span:nth-child(7) {
+  left: 70%;
+}
+.bg-lines span:nth-child(8) {
+  left: 80%;
+}
+.bg-lines span:nth-child(9) {
+  left: 90%;
+}
+
+@keyframes left_right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.main .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  height: 100vh;
+}
+.main .container h1 {
+  font-size: 50px;
+  letter-spacing: 10px;
+  font-weight: bold;
+  background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+.main .container img {
+  height: 600px;
+}
+@media (max-width: 750px) {
+  .main .container {
+    flex-direction: column;
+  }
+}
+
+#sign .container {
+  border: 3px solid rgb(188, 15, 136);
+  border-radius: 15px;
+  padding-top: 15px;
+}
+#sign .container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#sign .container label {
+  padding-right: 15px;
+  background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  width: 15%;
+}
+#sign .container input,
+#sign .container select {
+  background-color: transparent;
+  border-bottom: 1px solid rgb(188, 15, 136);
+  width: 80%;
+  padding: 5px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+}
+#sign .container input#cal {
+  text-align: left;
+}
+#sign .container input#btn {
+  border: none;
+  width: 20%;
+  padding: 5px;
+  background-color: black;
+  border-radius: 8px;
+  height: 40px;
+  background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
+  font-size: 25px;
+  cursor: pointer;
+}
+#sign .container select option {
+  color: black;
+}
+@media (max-width: 600px) {
+  #sign .container input#btn {
+    width: 80%;
+  }
+}
+@media (max-width: 450px) {
+  #sign .container {
+    border: none;
+    width: 100%;
+  }
+}
+@media (max-width: 380px) {
+  #sign .container label {
+    display: none;
+  }
+}
+
+/* ------------------------------------- */
+/* .dash .container table {
+  width: 100%;
+  border: 3px solid rgb(188, 15, 136);
+  background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.dash .container table td,
+.dash .container table th {
+  border: 3px solid rgb(188, 15, 136);
+  padding: 5px;
+  font-family: "Roboto Slab", serif;
+}
+@media (max-width: 550px) {
+  .dash .container{
+    width: 100%;
+  }
+} */
+
+.table .container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.table .container thead tr {
+  background: transparent;
+  box-shadow: none;
+}
+
+.table .container tbody tr {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgb(188, 15, 136);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.table .container tbody tr:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.table .container th,
+.table .container td {
+  padding: 15px;
+  text-align: left;
+  background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+@media (max-width: 700px) {
+  .table .container table thead {
+    display: none;
+  }
+
+  .table .container table tbody tr {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .table .container table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "weekly_schedule": {
+    "Saturday": ["11 AM", "1 PM", "3 PM", "8 PM"],
+    "Sunday": [],
+    "Monday": ["11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
+    "Tuesday": ["11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
+    "Wednesday": ["11 AM", "1 PM", "8 PM"],
+    "Thursday": ["11 AM", "1 PM", "3 PM", "5 PM", "7 PM"],
+    "Friday": ["9 AM", "11 AM"]
+  },
+  "appointments": {}
+}
