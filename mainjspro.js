@@ -133,3 +133,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 });
+
+let allDiv = document.querySelectorAll(".imgs .container div");
+allDiv.forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    allDiv.forEach((e) => {
+      if (e !== el) e.classList.add("active");
+    });
+  });
+
+  el.addEventListener("mouseleave", () => {
+    allDiv.forEach((e) => {
+      e.classList.remove("active");
+    });
+  });
+});

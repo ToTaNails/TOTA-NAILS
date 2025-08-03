@@ -92,7 +92,7 @@ body {
   .main .container {
     flex-direction: column;
   }
-  .main .container h1{
+  .main .container h1 {
     margin: 40px 0;
   }
 }
@@ -164,7 +164,7 @@ body {
   .imgs .container {
     flex-direction: column;
   }
-  .imgs .container img{
+  .imgs .container img {
     width: 80% !important;
   }
 }
@@ -174,24 +174,57 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.imgs .container img {
-  width: 40%;
+.imgs .container div {
+  width: 30%;
   margin-bottom: 15px;
   transition: all 0.5s ease;
-  border-radius: 10%;
+  border-radius: 5%;
+  height: 50vh;
+  border: 3px solid rgb(188, 15, 136);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  letter-spacing: 10px;
+  background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
+  font-size: 20px;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
 }
-.imgs .container img:hover {
+@media (max-width: 800px) {
+  .imgs .container div {
+    width: 45%;
+  }
+}
+@media (max-width: 700px) {
+  .imgs .container div {
+    width: 70%;
+    font-size: 25px;
+  }
+}
+@media (max-width: 550px) {
+  .imgs .container div {
+    width: 85%;
+  }
+}
+@media (max-width: 400px) {
+  .imgs .container div {
+    width: 95%;
+  }
+}
+.imgs .container div:hover {
   scale: 1.08;
 }
-.imgs .container img:hover ~ img {
+.imgs .container div.active {
   opacity: 0.3;
   filter: blur(3px);
 }
 
 .copy {
   margin: 30px;
-  font-size: 25px;
-  letter-spacing: 15px;
+  letter-spacing: 8px;
   text-transform: uppercase;
   background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
   -webkit-background-clip: text;
