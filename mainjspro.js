@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
       option.textContent = "🚫 يوم الأحد إجازة";
       option.disabled = true;
       option.selected = true;
-      submitBtn.disabled = true;
       clock.appendChild(option);
       return;
     }
