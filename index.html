@@ -8,6 +8,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="Logo-removebg-preview.png" />
@@ -28,12 +30,44 @@
     </div>
     <div class="main">
       <div class="container">
-        <h1>TOTA NAILS</h1>
-        <img src="Logo-removebg-preview.png" alt="Logo" />
+        <h1 data-aos="fade-left" data-aos-duration="2000">TOTA NAILS</h1>
+        <img
+          src="Logo-removebg-preview.png"
+          alt="Logo"
+          data-aos="fade-right"
+          data-aos-duration="2000"
+        />
       </div>
     </div>
-
-    <form action="" id="sign">
+    <!-- <div class="imgs">
+      <div class="container">
+        <img
+          src="Logo-removebg-preview.png"
+          alt=""
+          data-aos="fade-right"
+          data-aos-duration="2000"
+        />
+        <img
+          src="Logo-removebg-preview.png"
+          alt=""
+          data-aos="fade-left"
+          data-aos-duration="2000"
+        />
+        <img
+          src="Logo-removebg-preview.png"
+          alt=""
+          data-aos="fade-left"
+          data-aos-duration="2000"
+        />
+        <img
+          src="Logo-removebg-preview.png"
+          alt=""
+          data-aos="fade-left"
+          data-aos-duration="2000"
+        />
+      </div>
+    </div> -->
+    <form action="" id="sign" data-aos="zoom-in" data-aos-duration="2000">
       <div class="container">
         <div>
           <label for="name">Name</label>
@@ -69,8 +103,10 @@
         </div>
       </div>
     </form>
+    <div class="container">
+      <h2 style="text-align: center" class="copy">All &copy Reserverd By ME</h2>
+    </div>
     <script src="db.js"></script>
     <script src="mainjspro.js"></script>
   </body>
 </html>
-

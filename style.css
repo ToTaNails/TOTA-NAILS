@@ -98,6 +98,7 @@ body {
   border: 3px solid rgb(188, 15, 136);
   border-radius: 15px;
   padding-top: 15px;
+  margin: 20px auto;
 }
 #sign .container div {
   display: flex;
@@ -153,37 +154,47 @@ body {
     width: 100%;
   }
 }
-@media (max-width: 380px) {
-  #sign .container label {
+@media (max-width: 700px) {
+  #sign .container div label {
     display: none;
   }
-}
-
-/* ------------------------------------- */
-/* .dash .container table {
-  width: 100%;
-  border: 3px solid rgb(188, 15, 136);
-  background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
-  color: white;
-  font-size: 20px;
-  padding: 5px;
-  margin-bottom: 20px;
-  text-align: center;
-  border-collapse: collapse;
-}
-
-.dash .container table td,
-.dash .container table th {
-  border: 3px solid rgb(188, 15, 136);
-  padding: 5px;
-  font-family: "Roboto Slab", serif;
-}
-@media (max-width: 550px) {
-  .dash .container{
-    width: 100%;
+  .imgs .container {
+    flex-direction: column;
   }
-} */
+  .imgs .container img{
+    width: 80% !important;
+  }
+}
+.imgs .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.imgs .container img {
+  width: 40%;
+  margin-bottom: 15px;
+  transition: all 0.5s ease;
+  border-radius: 10%;
+}
+.imgs .container img:hover {
+  scale: 1.08;
+}
+.imgs .container img:hover ~ img {
+  opacity: 0.3;
+  filter: blur(3px);
+}
 
+.copy {
+  margin: 30px;
+  font-size: 25px;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, rgb(255, 117, 213), rgb(188, 15, 136));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/*-------------------------------- */
 .table .container table {
   width: 100%;
   border-collapse: separate;

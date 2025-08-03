@@ -12,12 +12,10 @@ firebase
     for (let id in data) {
       const entry = data[id];
 
-      const [year, month, day] = entry.day.split("-").map(Number); // "YYYY-MM-DD"
+      const [year, month, day] = entry.day.split("-").map(Number);
 
-      // نفصل الوقت والـ AM/PM
-      const [timePart, ampm] = entry.time.trim().split(" "); // مثلاً "11 AM" أو "1:30 PM"
+      const [timePart, ampm] = entry.time.trim().split(" ");
 
-      // لو الوقت مفهوش :
       let hourStr, minuteStr;
       if (timePart.includes(":")) {
         [hourStr, minuteStr] = timePart.split(":");
@@ -29,7 +27,6 @@ firebase
       let hour = Number(hourStr);
       const minute = Number(minuteStr);
 
-      // تعديل الساعة حسب AM / PM
       if (ampm.toUpperCase() === "PM" && hour !== 12) {
         hour += 12;
       } else if (ampm.toUpperCase() === "AM" && hour === 12) {
@@ -37,17 +34,18 @@ firebase
       }
 
       const fullDate = new Date(year, month - 1, day, hour, minute);
-      // ✅ نتأكد إن التاريخ لسه جاي أو النهاردة
+
       const now = new Date();
-      now.setHours(0, 0, 0, 0); // نتجاهل الساعة
+      now.setHours(0, 0, 0, 0);
       const bookingDate = new Date(year, month - 1, day);
       bookingDate.setHours(0, 0, 0, 0);
 
       if (bookingDate < now) {
-        continue; // 🛑 لو الحجز في الماضي، نعديه
+        continue;
       }
 
       appointments.push({
+        id: id, // ✅ مهم علشان الحذف
         name: entry.name,
         phone: entry.phone,
         day: entry.day,
@@ -56,21 +54,45 @@ firebase
       });
     }
 
-    // ترتيب حسب التاريخ والساعة
     appointments.sort((a, b) => a.timestamp - b.timestamp);
 
-    // تفريغ الجدول
     tableBody.innerHTML = "";
 
-    // تعبئة الجدول
     appointments.forEach((appt) => {
       const row = document.createElement("tr");
+      row.setAttribute("data-aos", "zoom-in");
+      row.setAttribute("data-aos-duration", "2000");
+
       row.innerHTML = `
         <td>${appt.day}</td>
         <td>${appt.time}</td>
         <td>${appt.name}</td>
         <td>${appt.phone}</td>
+        <td>
+          <i class="fas fa-trash-alt" onclick="deleteAppointment('${appt.id}')" style="background:none; border:none; cursor:pointer;" title="حذف">
+            
+          </i>
+        </td>
       `;
+
       tableBody.appendChild(row);
     });
   });
+
+// ✅ دالة حذف الحجز من Firebase
+function deleteAppointment(id) {
+  const confirmDelete = confirm("هل أنت متأكد أنك تريد حذف هذا الحجز؟");
+  if (!confirmDelete) return;
+
+  firebase
+    .database()
+    .ref("appointments/" + id)
+    .remove()
+    .then(() => {
+      alert("✅ تم حذف الحجز بنجاح.");
+    })
+    .catch((error) => {
+      console.error("❌ خطأ أثناء الحذف:", error);
+      alert("❌ فشل الحذف. حاول مرة أخرى.");
+    });
+}

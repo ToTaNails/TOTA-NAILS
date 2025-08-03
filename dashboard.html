@@ -7,6 +7,9 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
@@ -40,7 +43,7 @@
       <div class="container">
         <table id="table">
           <thead>
-            <tr>
+            <tr data-aos="zoom-in" data-aos-duration="2000">
               <th>Day</th>
               <th>Clock</th>
               <th>Name</th>
@@ -50,6 +53,9 @@
           <tbody></tbody>
         </table>
       </div>
+    </div>
+    <div class="container">
+      <h2 style="text-align: center" class="copy">All &copy Reserverd By ME</h2>
     </div>
     <script src="db.js"></script>
     <script src="secpro.js"></script>
