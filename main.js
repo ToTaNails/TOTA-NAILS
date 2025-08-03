@@ -1,222 +1,139 @@
 "use strict";
-function _0x4ddf(_0x34ca9c, _0x475aad) {
-  const _0x561066 = _0x5610();
-  return (
-    (_0x4ddf = function (_0x4ddf1b, _0x22df71) {
-      _0x4ddf1b = _0x4ddf1b - 0xa8;
-      let _0x2f11d2 = _0x561066[_0x4ddf1b];
-      return _0x2f11d2;
-    }),
-    _0x4ddf(_0x34ca9c, _0x475aad)
-  );
-}
-function _0x5610() {
-  const _0x45a4e4 = [
-    "2682032FxUFYj",
-    "submit",
-    "❌\x20لا\x20يمكن\x20الحجز\x20في\x20هذا\x20اليوم.",
-    "length",
-    "once",
-    "en-US",
-    "❌\x20حدث\x20خطأ!\x20حاول\x20مرة\x20أخرى.",
-    "val",
-    "184393KJandq",
-    "then",
-    "Sunday",
-    "option",
-    "push",
-    "cal",
-    "getElementById",
-    "name",
-    "weekly_schedule/",
-    "selected",
-    "forms",
-    "long",
-    "button[type=\x27submit\x27]",
-    "forEach",
-    "querySelector",
-    "innerHTML",
-    "time",
-    "value",
-    "⚠️\x20لا\x20يمكن\x20الحجز\x20في\x20اليوم\x20الحالي\x20أو\x20الأيام\x20السابقة",
-    "setHours",
-    "database",
-    "appointments",
-    "1669790sUUueU",
-    "ref",
-    "createElement",
-    "valueAsDate",
-    "change",
-    "810307zSFUps",
-    "catch",
-    "95445TmfAGY",
-    "disabled",
-    "reset",
-    "7rlOWft",
-    "textContent",
-    "trim",
-    "❌\x20حدث\x20خطأ\x20أثناء\x20الحجز:",
-    "filter",
-    "toLocaleDateString",
-    "6kUhTbw",
-    "4131896CqFLqx",
-    "includes",
-    "error",
-    "day",
-    "DOMContentLoaded",
-    "20145wzWnMj",
-    "phone",
-    "appendChild",
-    "1100FAuLUa",
-    "812GotOWT",
-    "🚫\x20يوم\x20الأحد\x20إجازة",
-    "dispatchEvent",
-  ];
-  _0x5610 = function () {
-    return _0x45a4e4;
-  };
-  return _0x5610();
-}
-const _0x3ca705 = _0x4ddf;
-(function (_0x20e97c, _0x3dd92c) {
-  const _0x35c320 = _0x4ddf,
-    _0x58eb9e = _0x20e97c();
-  while (!![]) {
-    try {
-      const _0x2588e9 =
-        -parseInt(_0x35c320(0xad)) / 0x1 +
-        -parseInt(_0x35c320(0xc5)) / 0x2 +
-        (parseInt(_0x35c320(0xbe)) / 0x3) * (parseInt(_0x35c320(0xc2)) / 0x4) +
-        (-parseInt(_0x35c320(0xa8)) / 0x5) *
-          (-parseInt(_0x35c320(0xb8)) / 0x6) +
-        (parseInt(_0x35c320(0xb2)) / 0x7) * (-parseInt(_0x35c320(0xb9)) / 0x8) +
-        -parseInt(_0x35c320(0xaf)) / 0x9 +
-        (-parseInt(_0x35c320(0xc1)) / 0xa) * (-parseInt(_0x35c320(0xcd)) / 0xb);
-      if (_0x2588e9 === _0x3dd92c) break;
-      else _0x58eb9e["push"](_0x58eb9e["shift"]());
-    } catch (_0xb31b4f) {
-      _0x58eb9e["push"](_0x58eb9e["shift"]());
+
+document.addEventListener("DOMContentLoaded", () => {
+  let cal = document.getElementById("cal");
+  let clock = document.getElementById("time");
+  let form = document.forms[0];
+  cal.valueAsDate = new Date();
+
+  cal.addEventListener("change", async () => {
+    const submitBtn = document.querySelector("button[type='submit']");
+    let selectedDateStr = cal.value;
+    let selectedDate = new Date(selectedDateStr);
+    let today = new Date();
+
+    // نضبط الوقت للمقارنة الدقيقة
+    today.setHours(0, 0, 0, 0);
+    selectedDate.setHours(0, 0, 0, 0);
+
+    // نحصل على اسم اليوم المختار
+    let dayName = selectedDate.toLocaleDateString("en-US", { weekday: "long" });
+
+    // 🛑 لو اليوم الأحد → إجازة
+    if (dayName === "Sunday") {
+      clock.innerHTML = "";
+      const option = document.createElement("option");
+      option.textContent = "🚫 يوم الأحد إجازة";
+      option.disabled = true;
+      option.selected = true;
+      clock.appendChild(option);
+      return;
     }
-  }
-})(_0x5610, 0xd299a);
-document["addEventListener"](_0x3ca705(0xbd), () => {
-  const _0x408beb = _0x3ca705;
-  let _0x5376dc = document["getElementById"](_0x408beb(0xd2)),
-    _0x3c6b1d = document[_0x408beb(0xd3)](_0x408beb(0xdd)),
-    _0x2af756 = document[_0x408beb(0xd7)][0x0];
-  (_0x5376dc[_0x408beb(0xab)] = new Date()),
-    _0x5376dc["addEventListener"](_0x408beb(0xac), async () => {
-      const _0x11ba57 = _0x408beb,
-        _0x4e3e2c = document[_0x11ba57(0xdb)](_0x11ba57(0xd9));
-      let _0x4c29a8 = _0x5376dc[_0x11ba57(0xde)],
-        _0x4a55bd = new Date(_0x4c29a8),
-        _0x2f3aee = new Date();
-      _0x2f3aee[_0x11ba57(0xe0)](0x0, 0x0, 0x0, 0x0),
-        _0x4a55bd[_0x11ba57(0xe0)](0x0, 0x0, 0x0, 0x0);
-      let _0x43cdc4 = _0x4a55bd[_0x11ba57(0xb7)](_0x11ba57(0xca), {
-        weekday: _0x11ba57(0xd8),
-      });
-      if (_0x43cdc4 === _0x11ba57(0xcf)) {
-        _0x3c6b1d["innerHTML"] = "";
-        const _0x30f47a = document[_0x11ba57(0xaa)]("option");
-        (_0x30f47a[_0x11ba57(0xb3)] = _0x11ba57(0xc3)),
-          (_0x30f47a[_0x11ba57(0xb0)] = !![]),
-          (_0x30f47a[_0x11ba57(0xd6)] = !![]),
-          (_0x4e3e2c["disabled"] = !![]),
-          _0x3c6b1d["appendChild"](_0x30f47a);
-        return;
+
+    // 🛑 لو التاريخ في الماضي أو النهاردة → ممنوع
+    if (selectedDate <= today) {
+      clock.innerHTML = "";
+      const option = document.createElement("option");
+      option.textContent = "⚠️ لا يمكن الحجز في اليوم الحالي أو الأيام السابقة";
+      option.disabled = true;
+      option.selected = true;
+      clock.appendChild(option);
+      return;
+    }
+
+    // ✅ باقي الكود زي ما هو
+    const weeklyRef = db.ref("weekly_schedule/" + dayName);
+    const weeklySnapshot = await weeklyRef.once("value");
+    const allTimes = weeklySnapshot.val() || [];
+
+    const appointmentsRef = db.ref("appointments");
+    const appointmentsSnapshot = await appointmentsRef.once("value");
+    const bookedTimes = [];
+
+    appointmentsSnapshot.forEach((snap) => {
+      const data = snap.val();
+      if (data.day === selectedDateStr) {
+        bookedTimes.push(data.time);
       }
-      if (_0x4a55bd <= _0x2f3aee) {
-        _0x3c6b1d[_0x11ba57(0xdc)] = "";
-        const _0xd47173 = document[_0x11ba57(0xaa)](_0x11ba57(0xd0));
-        (_0xd47173["textContent"] = _0x11ba57(0xdf)),
-          (_0xd47173[_0x11ba57(0xb0)] = !![]),
-          (_0xd47173[_0x11ba57(0xd6)] = !![]),
-          _0x3c6b1d[_0x11ba57(0xc0)](_0xd47173);
-        return;
-      }
-      const _0x5a1cdc = db[_0x11ba57(0xa9)](_0x11ba57(0xd5) + _0x43cdc4),
-        _0x1d2d79 = await _0x5a1cdc[_0x11ba57(0xc9)](_0x11ba57(0xde)),
-        _0x3b8e3c = _0x1d2d79[_0x11ba57(0xcc)]() || [],
-        _0x2906de = db[_0x11ba57(0xa9)]("appointments"),
-        _0x368e81 = await _0x2906de[_0x11ba57(0xc9)]("value"),
-        _0x477570 = [];
-      _0x368e81[_0x11ba57(0xda)]((_0x499444) => {
-        const _0x43bf7f = _0x11ba57,
-          _0x5dd951 = _0x499444[_0x43bf7f(0xcc)]();
-        _0x5dd951[_0x43bf7f(0xbc)] === _0x4c29a8 &&
-          _0x477570[_0x43bf7f(0xd1)](_0x5dd951[_0x43bf7f(0xdd)]);
-      });
-      const _0x3f9e9c = _0x3b8e3c[_0x11ba57(0xb6)](
-        (_0x222b4c) => !_0x477570[_0x11ba57(0xba)](_0x222b4c)
-      );
-      _0x3c6b1d[_0x11ba57(0xdc)] = "";
-      if (_0x3f9e9c[_0x11ba57(0xc8)] === 0x0) {
-        const _0x3294c4 = document[_0x11ba57(0xaa)](_0x11ba57(0xd0));
-        (_0x3294c4[_0x11ba57(0xb3)] = "لا\x20يوجد\x20مواعيد\x20متاحة"),
-          (_0x3294c4[_0x11ba57(0xb0)] = !![]),
-          (_0x3294c4[_0x11ba57(0xd6)] = !![]),
-          _0x3c6b1d["appendChild"](_0x3294c4);
-        return;
-      }
-      _0x3f9e9c[_0x11ba57(0xda)]((_0x34b663) => {
-        const _0xb9df2a = _0x11ba57,
-          _0xc9636c = document[_0xb9df2a(0xaa)](_0xb9df2a(0xd0));
-        (_0xc9636c["value"] = _0x34b663),
-          (_0xc9636c[_0xb9df2a(0xb3)] = "" + _0x34b663),
-          _0x3c6b1d["appendChild"](_0xc9636c);
-      });
-    }),
-    _0x5376dc[_0x408beb(0xc4)](new Event(_0x408beb(0xac))),
-    _0x2af756["addEventListener"](_0x408beb(0xc6), function (_0x1822aa) {
-      const _0x5d3801 = _0x408beb;
-      _0x1822aa["preventDefault"]();
-      const _0x27fe39 = document[_0x5d3801(0xd3)](_0x5d3801(0xd4))[
-          _0x5d3801(0xde)
-        ][_0x5d3801(0xb4)](),
-        _0x4d6c7b = document[_0x5d3801(0xd3)](_0x5d3801(0xbf))[_0x5d3801(0xde)][
-          _0x5d3801(0xb4)
-        ](),
-        _0x275f1b =
-          document[_0x5d3801(0xd3)]("time")[_0x5d3801(0xde)][_0x5d3801(0xb4)](),
-        _0x542959 = document[_0x5d3801(0xd3)](_0x5d3801(0xd2))[_0x5d3801(0xde)][
-          _0x5d3801(0xb4)
-        ](),
-        _0x648760 = new Date(_0x542959),
-        _0x25827a = new Date();
-      _0x648760[_0x5d3801(0xe0)](0x0, 0x0, 0x0, 0x0),
-        _0x25827a[_0x5d3801(0xe0)](0x0, 0x0, 0x0, 0x0);
-      const _0x3ae4d4 = _0x648760[_0x5d3801(0xb7)](_0x5d3801(0xca), {
-        weekday: _0x5d3801(0xd8),
-      });
-      if (_0x3ae4d4 === _0x5d3801(0xcf) || _0x648760 <= _0x25827a) {
-        alert(_0x5d3801(0xc7));
-        return;
-      }
-      if (!_0x27fe39 || !_0x4d6c7b || !_0x542959 || !_0x275f1b) {
-        alert("⚠️\x20من\x20فضلك\x20املأ\x20كل\x20الحقول.");
-        return;
-      }
-      const _0x32bbfa = {
-        name: _0x27fe39,
-        phone: _0x4d6c7b,
-        day: _0x542959,
-        time: _0x275f1b,
-      };
-      firebase[_0x5d3801(0xe1)]()
-        [_0x5d3801(0xa9)](_0x5d3801(0xe2))
-        [_0x5d3801(0xd1)](_0x32bbfa)
-        [_0x5d3801(0xce)](() => {
-          const _0x427e10 = _0x5d3801;
-          alert("✅\x20تم\x20حجز\x20الموعد\x20بنجاح!"),
-            _0x2af756[_0x427e10(0xb1)](),
-            (_0x5376dc["valueAsDate"] = new Date()),
-            _0x5376dc[_0x427e10(0xc4)](new Event(_0x427e10(0xac)));
-        })
-        [_0x5d3801(0xae)]((_0x5c095d) => {
-          const _0x4f6b94 = _0x5d3801;
-          console[_0x4f6b94(0xbb)](_0x4f6b94(0xb5), _0x5c095d),
-            alert(_0x4f6b94(0xcb));
-        });
     });
+
+    const availableTimes = allTimes.filter(
+      (time) => !bookedTimes.includes(time)
+    );
+
+    clock.innerHTML = "";
+
+    if (availableTimes.length === 0) {
+      const option = document.createElement("option");
+      option.textContent = "لا يوجد مواعيد متاحة";
+      option.disabled = true;
+      option.selected = true;
+      clock.appendChild(option);
+      return;
+    }
+
+    availableTimes.forEach((time) => {
+      const option = document.createElement("option");
+      option.value = time;
+      option.textContent = `${time}`;
+      clock.appendChild(option);
+    });
+  });
+
+  cal.dispatchEvent(new Event("change"));
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const time = document.getElementById("time").value.trim();
+    const dateStr = document.getElementById("cal").value.trim();
+    const selectedDate = new Date(dateStr);
+    const today = new Date();
+    selectedDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    const dayName = selectedDate.toLocaleDateString("en-US", {
+      weekday: "long",
+    });
+
+    // 🛑 منع الحجز في يوم الأحد أو يوم ماضي
+    if (dayName === "Sunday" || selectedDate <= today) {
+      alert("❌ لا يمكن الحجز في هذا اليوم.");
+      return;
+    }
+
+    if (!name || !phone || !dateStr || !time) {
+      alert("⚠️ من فضلك املأ كل الحقول.");
+      return;
+    }
+
+    let phoneReg = /^01[0125][0-9]{8}/g;
+    if (!phoneReg.test(phone)) {
+      alert("الرقم غلط لازم تدخل رقم تلفوني حقيقي و يكون صح");
+      return;
+    }
+    const appointment = {
+      name: name,
+      phone: phone,
+      day: dateStr,
+      time: time,
+    };
+
+    firebase
+      .database()
+      .ref("appointments")
+      .push(appointment)
+      .then(() => {
+        alert("✅ تم حجز الموعد بنجاح!");
+        form.reset();
+        cal.valueAsDate = new Date();
+        cal.dispatchEvent(new Event("change"));
+      })
+      .catch((error) => {
+        console.error("❌ حدث خطأ أثناء الحجز:", error);
+        alert("❌ حدث خطأ! حاول مرة أخرى.");
+      });
+  });
 });
