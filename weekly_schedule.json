@@ -1,13 +1,9 @@
 {
-  "weekly_schedule": {
-    "Saturday": ["9 AM", "11 AM", "1 PM", "3 PM","5 PM","7PM", "9 PM"],
-    "Sunday": [],
-    "Monday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
-    "Tuesday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
-    "Wednesday": ["9 AM", "11 AM", "1 PM","3 PM", "5 PM", "7 PM", "9 PM"],
-    "Thursday": ["9 AM" ,"11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
-    "Friday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"]
-  },
-  "appointments": {}
+  "Saturday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7PM", "9 PM"],
+  "Sunday": [],
+  "Monday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
+  "Tuesday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
+  "Wednesday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
+  "Thursday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"],
+  "Friday": ["9 AM", "11 AM", "1 PM", "3 PM", "5 PM", "7 PM", "9 PM"]
 }
-
