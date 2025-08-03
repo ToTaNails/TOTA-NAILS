@@ -92,6 +92,9 @@ body {
   .main .container {
     flex-direction: column;
   }
+  .main .container h1{
+    margin: 40px 0;
+  }
 }
 
 #sign .container {
