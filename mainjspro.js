@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // 🛑 لو التاريخ في الماضي أو النهاردة → ممنوع
-    if (selectedDate <= today) {
+    // 🛑 لو التاريخ في الماضي → ممنوع
+    if (selectedDate < today) {
       clock.innerHTML = "";
       const option = document.createElement("option");
       option.textContent = "⚠️ لا يمكن الحجز في اليوم الحالي أو الأيام السابقة";
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ✅ باقي الكود زي ما هو
+    // جلب المواعيد من الفايربيز
     const weeklyRef = db.ref("weekly_schedule/" + dayName);
     const weeklySnapshot = await weeklyRef.once("value");
     const allTimes = weeklySnapshot.val() || [];
@@ -57,6 +57,56 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // ✅ لو التاريخ هو النهاردة → فلترة حسب الساعة
+    if (selectedDate.toDateString() === today.toDateString()) {
+      const now = new Date();
+      const currentHour = now.getHours();
+      const currentMinutes = now.getMinutes();
+
+      const filteredTimes = allTimes.filter((time) => {
+        const [timePart, ampm] = time.trim().split(" ");
+        let [hourStr, minuteStr] = timePart.includes(":")
+          ? timePart.split(":")
+          : [timePart, "00"];
+
+        let hour = parseInt(hourStr, 10);
+        let minute = parseInt(minuteStr, 10);
+
+        if (ampm === "PM" && hour !== 12) hour += 12;
+        if (ampm === "AM" && hour === 12) hour = 0;
+
+        if (hour > currentHour) return true;
+        if (hour === currentHour && minute > currentMinutes) return true;
+
+        return false;
+      });
+
+      const availableTimesToday = filteredTimes.filter(
+        (time) => !bookedTimes.includes(time)
+      );
+
+      clock.innerHTML = "";
+
+      if (availableTimesToday.length === 0) {
+        const option = document.createElement("option");
+        option.textContent = "⚠️ لا توجد مواعيد متاحة اليوم";
+        option.disabled = true;
+        option.selected = true;
+        clock.appendChild(option);
+        return;
+      }
+
+      availableTimesToday.forEach((time) => {
+        const option = document.createElement("option");
+        option.value = time;
+        option.textContent = time;
+        clock.appendChild(option);
+      });
+
+      return;
+    }
+
+    // ✅ لو اليوم في المستقبل → فقط فلترة المواعيد المحجوزة
     const availableTimes = allTimes.filter(
       (time) => !bookedTimes.includes(time)
     );
@@ -99,8 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
       weekday: "long",
     });
 
-    // 🛑 منع الحجز في يوم الأحد أو يوم ماضي
-    if (dayName === "Sunday" || selectedDate <= today) {
+    if (dayName === "Sunday" || selectedDate < today) {
       alert("❌ لا يمكن الحجز في هذا اليوم.");
       return;
     }
