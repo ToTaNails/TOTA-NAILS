@@ -231,6 +231,9 @@ body {
   color: transparent;
 }
 /*-------------------------------- */
+.table {
+  margin-bottom: 100px;
+}
 .table .container table {
   width: 100%;
   border-collapse: separate;

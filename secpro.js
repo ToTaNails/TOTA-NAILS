@@ -27,9 +27,9 @@ firebase
       let hour = Number(hourStr);
       const minute = Number(minuteStr);
 
-      if (ampm.toUpperCase() === "PM" && hour !== 12) {
+      if (ampm === "PM" && hour !== 12) {
         hour += 12;
-      } else if (ampm.toUpperCase() === "AM" && hour === 12) {
+      } else if (ampm === "AM" && hour === 12) {
         hour = 0;
       }
 
