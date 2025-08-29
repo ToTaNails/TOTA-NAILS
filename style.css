@@ -220,3 +220,6 @@ body {
     border-bottom: 1px solid #ddd;
   }
 }
+.copy a{
+  color: rgb(255, 117, 213);
+}
