@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .ref("appointments")
       .push(appointment)
       .then(() => {
-        alert("Done & Devloped By MagedEmel");
+        alert("تم الحجز بنجاح✅");
         form.reset();
         cal.valueAsDate = new Date();
         cal.dispatchEvent(new Event("change"));
