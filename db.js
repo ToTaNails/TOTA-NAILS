@@ -71,5 +71,4 @@ function _0x2c7d() {
   };
   return _0x2c7d();
 }
-console[_0x435b84(0x1ac)]("🔥\x20Firebase\x20app:", app["name"]);
 AOS.init();

@@ -197,3 +197,9 @@ allDiv.forEach((el) => {
     });
   });
 });
+
+console.log(`This Project Developed By "Maged Emel Sobhy"
+   For Contact : 
+      Email : magedemel007@gmail.com
+      Whatsapp : 01551803645
+  `);
